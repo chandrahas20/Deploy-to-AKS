@@ -24,7 +24,7 @@ stages:
     - task: Docker@2
       displayName: Build an image
       inputs:
-        containerRegistry: 'docker-service-conn'
+        containerRegistry: 'Docker'
         repository: '$(imageRepo)$(imageRepo)'
         command: 'buildAndPush'
         Dockerfile: '$(Build.SourcesDirectory)/app/Dockerfile'
