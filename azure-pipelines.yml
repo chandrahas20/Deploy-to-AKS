@@ -25,7 +25,7 @@ stages:
       displayName: Build an image
       inputs:
         containerRegistry: 'Docker'
-        repository: '$(imageRepo)$(imageRepo)'
+        repository: '$(imageRepo)'
         command: 'buildAndPush'
         Dockerfile: '$(Build.SourcesDirectory)/app/Dockerfile'
         tags: |
