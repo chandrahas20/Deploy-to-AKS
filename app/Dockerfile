@@ -1,16 +1,9 @@
-FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
-WORKDIR /app
+FROM alpine:latest
 
-# Copy csproj and restore as distinct layers
-COPY SampleWebApp/*.csproj .
-RUN dotnet restore
+RUN apk --update add nginx
 
-# Copy everything else and build website
-COPY SampleWebApp/. .
-RUN dotnet publish -c release -o /WebApp --no-restore
+COPY 2048 /usr/share/nginx/html
 
-# Final stage / image
-FROM mcr.microsoft.com/dotnet/aspnet:5.0
-WORKDIR /WebApp
-COPY --from=build /WebApp ./
-ENTRYPOINT ["dotnet", "SampleWebApp.dll"]
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]
