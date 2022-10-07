@@ -2,7 +2,6 @@ apiVersion : apps/v1
 kind: Deployment
 metadata:
   name: sampleapp 
-  namespace:prometheus
 spec:
   replicas: #replicaNo#
   selector:
