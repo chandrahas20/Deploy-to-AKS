@@ -58,7 +58,7 @@ stages:
           kubernetesServiceConnection: 'my-cluster-default'
           namespace: 'default'
           secretType: 'dockerRegistry'
-          secretName: '($acrsecret)'
+          secretName: '$(acrsecret)'
           dockerRegistryEndpoint: 'ekscontainerr'
       - task: KubernetesManifest@0
         inputs:
