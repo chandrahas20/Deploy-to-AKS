@@ -1,19 +1,19 @@
-apiVersion : apps/v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: sampleapp 
+  name: 2048-deployment
 spec:
-  replicas: #replicaNo#
   selector:
     matchLabels:
-      app: sampleapp
+      app: "2048"
+  replicas: 2
   template:
     metadata:
       labels:
-        app: sampleapp 
+        app: "2048"
     spec:
       containers:
-        - name: sampleapp 
-          image: k8sexamplesacr.azurecr.io/sampleapp
-          ports:
-          - containerPort: 80
+      - image: alexwhen/docker-2048
+        name: "2048"
+        ports:
+        - containerPort: 80
